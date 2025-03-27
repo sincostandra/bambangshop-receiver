@@ -66,7 +66,7 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [X] Commit: `Create Notification database and Notification repository struct skeleton.`
     -   [X] Commit: `Implement add function in Notification repository.`
     -   [X] Commit: `Implement list_all_as_string function in Notification repository.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
+    -   [X] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 3: Implement services and controllers**
     -   [ ] Commit: `Create Notification service struct skeleton.`
     -   [ ] Commit: `Implement subscribe function in Notification service.`
@@ -84,6 +84,16 @@ This is the place for you to write reflections:
 
 ### Mandatory (Subscriber) Reflections
 
-#### Reflection Subscriber-1
+#### Reflection Subscriber-1  
+1. In this tutorial, we used RwLock<> to synchronise the use of Vec of Notifications. Explain why it is necessary for this case, and explain why we do not use Mutex<> instead?  
+
+Answer:  
+RwLock<> digunakan karena RwLock<> memungkinkan beberapa thread untuk membaca data secara bersamaan (ketika tidak ada thread yang write), dibanding Mutex<> yang hanya mengizinkan satu thread untuk mengakses data. Oleh karena pada implementasi kali ini kita akan banyak melakuakn read operations, maka RwLock<> adalah pilihan yang paling cocok  
+
+2. In this tutorial, we used lazy_static external library to define Vec and DashMap as a “static” variable. Compared to Java where we can mutate the content of a static variable via a static function, why did not Rust allow us to do so?  
+
+Answer:  
+Karena rust identik dengan thread-safe, sehingga variabel static secara default akan immutebale untuk menghindari race condition  
+
 
 #### Reflection Subscriber-2
