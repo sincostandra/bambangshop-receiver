@@ -77,7 +77,7 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [X] Commit: `Implement receive function in Notification controller.`
     -   [X] Commit: `Implement list_messages function in Notification service.`
     -   [X] Commit: `Implement list function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
+    -   [X] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -95,5 +95,20 @@ RwLock<> digunakan karena RwLock<> memungkinkan beberapa thread untuk membaca da
 Answer:  
 Karena rust identik dengan thread-safe, sehingga variabel static secara default akan immutebale untuk menghindari race condition  
 
+#### Reflection Subscriber-2  
 
-#### Reflection Subscriber-2
+1. Have you explored things outside of the steps in the tutorial, for example: src/lib.rs? If not, explain why you did not do so. If yes, explain things that you have learned from those other parts of code. 
+
+Answer:  
+Setelah eksplor di src/lib.rs, dari yang saya tangkap, file ini berguna untuk load env. Hal yang menarik saya temukan adalah kita bisa membuat custom error handling function, contohnya pada tutorial ini adalah compose_error_respone  
+
+2. Since you have completed the tutorial by now and have tried to test your notification system by spawning multiple instances of Receiver, explain how Observer pattern eases you to plug in more subscribers. How about spawning more than one instance of Main app, will it still be easy enough to add to the system?  
+
+Answer:  
+Dengan pattern Observer, penambahan instance Subscriber akan jauh lebih mudah karena Subscriber bisa langsung subscribe tanpa harus config ulang di Publisher. jika ingin menjalankan lebih dari satu instance dari Main App, sistem notifikasi tetap terjaga secara terintegrasi karena setiap instance akan melakukan pendaftaran sebagai observer.
+
+
+3. Have you tried to make your own Tests, or enhance documentation on your Postman collection? If you have tried those features, tell us whether it is useful for your work (it can be your tutorial work or your Group Project).  
+
+Answer:  
+Saya belum mencoba membuat Test di postman. Namun sepertinya itu akan sangat membantu saay dalam tugas kelompok untuk memastikan bahwa endpoint API bekerja sesuai yang diharapkan
